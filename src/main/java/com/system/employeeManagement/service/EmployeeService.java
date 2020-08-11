@@ -9,4 +9,6 @@ public interface EmployeeService {
 	public List<Employee> getEmpRecords();
 	
 	public void updateEmpRecord(long id, String firstName, String lastName, String email);
+	
+	public void updateEmpRecords(List<Employee> employeeList);
 }

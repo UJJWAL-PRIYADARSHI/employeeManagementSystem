@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -26,6 +27,11 @@ public class EmployeeController {
 	@RequestMapping(value = "/updateEmpRecord/{id}", method = RequestMethod.GET)
 	public void updateEmpRecord(@PathVariable long id, @RequestParam("name") String firstName, @RequestParam("lastName") String lastName, @RequestParam("email") String email) {
 		employeeServiceImpl.updateEmpRecord(id, firstName, lastName, email);
+	}
+	
+	@RequestMapping(value = "/updateEmpRecords",  consumes= {"application/json"}, method = RequestMethod.POST)
+	public void updateEmpRecords(@RequestBody List<Employee> employeeList) {
+		employeeServiceImpl.updateEmpRecords(employeeList);
 	}
 
 }

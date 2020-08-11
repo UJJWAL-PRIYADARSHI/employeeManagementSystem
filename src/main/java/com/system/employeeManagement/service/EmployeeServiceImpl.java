@@ -33,5 +33,10 @@ public class EmployeeServiceImpl implements EmployeeService{
 		employeeList.add(employee);
 		employeeRepository.saveAll(employeeList);
 	}
+
+	@Override
+	public void updateEmpRecords(List<Employee> employeeList) {
+		employeeRepository.saveAll(employeeList);
+	}
 	
 }
