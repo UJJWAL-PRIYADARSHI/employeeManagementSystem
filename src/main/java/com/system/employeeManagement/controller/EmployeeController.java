@@ -29,9 +29,19 @@ public class EmployeeController {
 		employeeServiceImpl.updateEmpRecord(id, firstName, lastName, email);
 	}
 	
-	@RequestMapping(value = "/updateEmpRecords",  consumes= {"application/json"}, method = RequestMethod.POST)
+	@RequestMapping(value = "/updateEmpRecords",  consumes = {"application/json"}, method = RequestMethod.POST)
 	public void updateEmpRecords(@RequestBody List<Employee> employeeList) {
 		employeeServiceImpl.updateEmpRecords(employeeList);
+	}
+	
+	@RequestMapping(value = "/addEmpRecord", method = RequestMethod.GET )
+	public void addEmpRecord(@RequestParam("name") String firstName, @RequestParam("lastName") String lastName, @RequestParam("email") String email) {
+		employeeServiceImpl.addEmpRecord(firstName, lastName, email);
+	}
+	
+	@RequestMapping(value = "/addEmpRecords", method = RequestMethod.POST, consumes = {"application/json"})
+	public void addEmpRecords(@RequestBody List<Employee> employeeList) {
+		employeeServiceImpl.addEmpRecords(employeeList);
 	}
 
 }

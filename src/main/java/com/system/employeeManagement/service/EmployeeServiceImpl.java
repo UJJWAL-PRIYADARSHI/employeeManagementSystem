@@ -38,5 +38,23 @@ public class EmployeeServiceImpl implements EmployeeService{
 	public void updateEmpRecords(List<Employee> employeeList) {
 		employeeRepository.saveAll(employeeList);
 	}
+
+	@Override
+	public void addEmpRecord(String firstName, String lastName, String email) {
+		
+		Employee employee = new Employee();
+		
+		employee.setFirstName(firstName);
+		employee.setLastName(lastName);
+		employee.setEmail(email);
+		
+		employeeRepository.save(employee);
+	}
+
+	@Override
+	public void addEmpRecords(List<Employee> employeeList) {
+		employeeRepository.saveAll(employeeList);
+		
+	}
 	
 }
